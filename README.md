@@ -98,16 +98,3 @@ safe-high-rise/
 3. Compare multiple locations (optional)
 4. Review safety tips and building guidance
 5. Use insights for early-stage construction planning
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## License
-
-This project is licensed under the MIT License.
-
-## Acknowledgments
-
-- Powered by Google Gemini API
-- Built with React and Python
