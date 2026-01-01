@@ -5,7 +5,7 @@ A risk-aware building guidance web application that helps assess environmental c
 ## Features
 
 - 🏗️ **Risk Assessment**: Analyze environmental construction risks for single or multiple locations
-- 🤖 **AI-Powered Recommendations**: Get intelligent building guidance using Google Gemini API
+- 🤖 **Building Guidance**: Get intelligent architectural recommendations powered by procedural expert systems
 - 📊 **Multi-Location Comparison**: Compare risks across different locations
 - 🎯 **Safety Tips**: Receive clear, actionable safety recommendations
 - 💡 **User-Friendly Interface**: Modern, intuitive web interface for non-technical users
@@ -18,8 +18,7 @@ A risk-aware building guidance web application that helps assess environmental c
 - Interactive UI components
 
 ### Backend
-- Python with Flask/FastAPI
-- Google Gemini API integration
+- Procedural design engine
 - RESTful API architecture
 
 ## Getting Started
@@ -27,7 +26,6 @@ A risk-aware building guidance web application that helps assess environmental c
 ### Prerequisites
 - Node.js (v14 or higher)
 - Python 3.8+
-- Google Gemini API key
 
 ### Installation
 
@@ -52,12 +50,7 @@ cd frontend
 npm install
 ```
 
-4. Configure environment variables:
-   - Create a `.env` file in the backend directory
-   - Add your Google Gemini API key:
-     ```
-     GEMINI_API_KEY=your_api_key_here
-     ```
+
 
 ### Running the Application
 
@@ -102,12 +95,3 @@ safe-high-rise/
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
-
-## License
-
-This project is licensed under the MIT License.
-
-## Acknowledgments
-
-- Powered by Google Gemini API
-- Built with React and Python
