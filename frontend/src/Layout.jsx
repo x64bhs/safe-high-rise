@@ -1,0 +1,28 @@
+import React from 'react';
+import { Outlet, Link, useLocation } from 'react-router-dom';
+
+const Layout = () => {
+    const location = useLocation();
+
+    return (
+        <div className="layout-root">
+            <nav className="navbar">
+                <div className="nav-brand">
+                    <Link to="/" style={{ textDecoration: 'none', color: 'white', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                        <span className="brand-logo">🏢</span> StrataMind
+                    </Link>
+                </div>
+                {/* Simplified Navigation: Just the brand link to Home. 
+            User specifically asked for at most 2 links or chained flow. 
+            Home -> Start Simulation -> Dashboard is a clear chain.
+        */}
+            </nav>
+
+            <main className="content">
+                <Outlet />
+            </main>
+        </div>
+    );
+};
+
+export default Layout;
