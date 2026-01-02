@@ -15,7 +15,6 @@ A risk-aware building guidance web application that helps assess environmental c
 ### Frontend
 - React + Vite
 - Modern CSS with responsive design
-- Interactive UI components
 
 ### Backend
 - Procedural design engine
@@ -57,8 +56,9 @@ npm install
 1. Start the backend server:
 ```bash
 cd backend
-venv\Scripts\activate
-python main.py
+venv\Scripts\activate  # On Windows
+# source venv/bin/activate  # On macOS/Linux
+python -m uvicorn main:app --reload --port 8000
 ```
 
 2. Start the frontend development server:
