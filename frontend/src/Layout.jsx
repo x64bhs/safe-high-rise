@@ -1,5 +1,6 @@
 import React from 'react';
 import { Outlet, Link, useLocation } from 'react-router-dom';
+import logo from './assets/logo.png';
 
 const Layout = () => {
     const location = useLocation();
@@ -8,8 +9,8 @@ const Layout = () => {
         <div className="layout-root">
             <nav className="navbar">
                 <div className="nav-brand">
-                    <Link to="/" style={{ textDecoration: 'none', color: 'white', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                        <span className="brand-logo">🏢</span> StrataMind
+                    <Link to="/" style={{ textDecoration: 'none', color: 'white', display: 'flex', alignItems: 'center', gap: '0.8rem' }}>
+                        <img src={logo} alt="StrataMind Logo" className="brand-logo-img" style={{ width: '32px', height: '32px', objectFit: 'contain' }} /> StrataMind
                     </Link>
                 </div>
                 {/* Simplified Navigation: Just the brand link to Home. 

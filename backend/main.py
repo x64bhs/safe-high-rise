@@ -69,3 +69,7 @@ async def analyze_location(data: LocationData):
         "alternatives": design_result.get('alternatives'),
         "amenities": design_result.get('amenities')
     }
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)

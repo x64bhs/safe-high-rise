@@ -31,8 +31,13 @@
     gap: 0.5rem;
 }
 
-.brand-logo {
-    filter: drop-shadow(0 0 5px rgba(59, 130, 246, 0.5));
+.brand-logo-img {
+    filter: drop-shadow(0 0 8px rgba(34, 211, 238, 0.4));
+    transition: transform 0.3s ease;
+}
+
+.brand-logo-img:hover {
+    transform: rotate(5deg) scale(1.1);
 }
 
 .nav-links {
