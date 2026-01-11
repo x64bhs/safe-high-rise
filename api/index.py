@@ -23,12 +23,16 @@ class LocationData(BaseModel):
     longitude: float
     description: Optional[str] = None
 
-@app.get("/")
+@app.get("/api")
 def read_root():
     return {"message": "Safe High-Rise API is running"}
 
+@app.get("/api/health")
+def health_check():
+    return {"status": "healthy"}
 
-@app.post("/analyze")
+
+@app.post("/api/analyze")
 async def analyze_location(data: LocationData):
     # 1. Gather Real/Estimated Environmental Data
     weather_profile = await get_weather_data(data.latitude, data.longitude)
