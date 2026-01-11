@@ -33,7 +33,7 @@ A risk-aware building guidance web application that helps assess environmental c
 1. Clone the repository:
 ```bash
 git clone https://github.com/x64bhs/safe-high-rise.git
-cd safe-high-rise_final
+cd safe-high-rise
 ```
 
 2. Set up the backend (Local):
