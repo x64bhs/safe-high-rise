@@ -6,18 +6,25 @@ import logging
 import sys
 import os
 
+# Essential for Vercel: ensure the current directory is in the path
+# so that libraries can be imported from subfolders correctly
+CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
+if CURRENT_DIR not in sys.path:
+    sys.path.append(CURRENT_DIR)
+
 # Configure logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 logger.info(f"Python version: {sys.version}")
 logger.info(f"Current working directory: {os.getcwd()}")
+logger.info(f"App directory: {CURRENT_DIR}")
 
 from services.weather_service import get_weather_data
 from services.seismic_service import get_seismic_risk
 from services.flood_service import get_flood_risk
 from services.generator import generate_architectural_design
-
 from services.geocoding_service import get_location_info
+
 app = FastAPI()
 
 app.add_middleware(
@@ -44,7 +51,6 @@ def read_root():
 def health_check():
     logger.info("Health check endpoint called")
     return {"status": "healthy"}
-
 
 @app.post("/analyze")
 @app.post("/api/analyze")
@@ -79,8 +85,11 @@ async def analyze_location(data: LocationData):
     if design_result['geometry']['type'] == "twisted":
         recommendations["features"].append("Vortex-Shedding Twist Geometry")
 
+    # Handle both Pydantic v1 and v2 for compatibility
+    data_dict = data.model_dump() if hasattr(data, "model_dump") else data.dict()
+    
     return {
-        "location": {**data.dict(), "description": location_info["description"], "name": location_info["name"]},
+        "location": {**data_dict, "description": location_info["description"], "name": location_info["name"]},
         "profile": {
             "seismic_zone": seismic_profile["zone"],
             "max_wind_speed": f"{weather_profile['max_wind_speed']} km/h",
