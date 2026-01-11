@@ -4,39 +4,41 @@ A risk-aware building guidance web application that helps assess environmental c
 
 ## Features
 
-- 🏗️ **Risk Assessment**: Analyze environmental construction risks for single or multiple locations
-- 🤖 **Building Guidance**: Get intelligent architectural recommendations powered by procedural expert systems
-- 🎯 **Safety Tips**: Receive clear, actionable safety recommendations
-- 💡 **User-Friendly Interface**: Modern, intuitive web interface for non-technical users
+- 🏗️ **Risk Assessment**: Analyze environmental construction risks for single or multiple locations.
+- 🤖 **AI-Driven Design**: Intelligent architectural recommendations powered by a procedural expert system.
+- 🏢 **3D Visualization**: Interactive building previews based on environmental data.
+- 📊 **Resilience Reports**: Comprehensive safety scores and structural recommendations.
+- 💡 **User-Friendly Interface**: Modern, intuitive web interface designed for architectural planning.
 
 ## Tech Stack
 
 ### Frontend
 - React + Vite
-- Modern CSS with responsive design
-- Interactive UI components
+- Three.js / React Three Fiber (3D Visualization)
+- Modern Vanilla CSS
 
-### Backend
-- Procedural design engine
-- RESTful API architecture
+### Backend (API)
+- Python + FastAPI
+- Serverless-ready for Vercel deployment
+- Expert system for structural engineering logic
 
 ## Getting Started
 
 ### Prerequisites
-- Node.js (v14 or higher)
-- Python 3.8+
+- Node.js (v18 or higher)
+- Python 3.10+
 
 ### Installation
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/Vinay6615/StrataMind---Designing_Structures_that_Think_with_the_Earth.git
-cd StrataMind---Designing_Structures_that_Think_with_the_Earth/safe-high-rise_final
+git clone https://github.com/x64bhs/safe-high-rise.git
+cd safe-high-rise_final
 ```
 
-2. Set up the backend:
+2. Set up the backend (Local):
 ```bash
-cd backend
+cd api
 python -m venv venv
 venv\Scripts\activate  # On Windows
 # source venv/bin/activate  # On macOS/Linux
@@ -49,47 +51,46 @@ cd frontend
 npm install
 ```
 
+### Running the Application Locally
 
-
-### Running the Application
-
-1. Start the backend server:
+1. Start the API server:
 ```bash
-cd backend
-venv\Scripts\activate
-uvicorn main:app --reload --port 8000
+cd api
+uvicorn index:app --reload --port 8000
 ```
 
-2. Start the frontend development server:
+2. Start the React frontend:
 ```bash
 cd frontend
 npm run dev
 ```
 
-3. Open your browser and navigate to `http://localhost:5173` (or the port shown in terminal)
+3. Open `http://localhost:5173`. The frontend is configured to proxy `/api` requests to `http://localhost:8000`.
+
+## Deployment (Vercel)
+
+This project is optimized for deployment on Vercel as a full-stack application.
+
+1. Connect your GitHub repository to Vercel.
+2. Vercel will automatically detect the `vercel.json` configuration.
+3. **Deployment Settings**:
+   - **Root Directory**: Project Root (leave as default).
+   - **Build Command**: Managed by `vercel.json`.
+4. Once deployed, verify your API health at `https://your-app.vercel.app/api/health`.
 
 ## Project Structure
 
 ```
-StrataMind---Designing_Structures_that_Think_with_the_Earth/
-└── safe-high-rise_final/
-    ├── backend/           # Python backend with API endpoints
-    │   ├── main.py       # Main application entry point
-    │   ├── services/     # Business logic and API integrations
-    │   └── venv/         # Python virtual environment
-    └── frontend/         # React frontend application
-        ├── src/          # Source code
-        ├── public/       # Static assets
-        └── package.json  # Node dependencies
+safe-high-rise/
+├── api/                # Python backend (FastAPI)
+│   ├── index.py        # Main entry point for Vercel
+│   ├── services/       # Engineering logic (Seismic, Wind, Flood)
+│   └── requirements.txt
+├── frontend/           # React frontend
+│   ├── src/            # Components, Pages, Assets
+│   └── vite.config.js  # Configured with API proxy
+└── vercel.json         # Full-stack deployment configuration
 ```
-
-## Usage
-
-1. Enter a location to assess construction risks
-2. View AI-generated risk analysis and recommendations
-3. Compare multiple locations (optional)
-4. Review safety tips and building guidance
-5. Use insights for early-stage construction planning
 
 ## Contributing
 
