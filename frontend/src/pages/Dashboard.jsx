@@ -15,7 +15,7 @@ const Dashboard = () => {
         setLoading(true);
         setActiveSim(null); // Reset sim on new analysis
         try {
-            const response = await fetch('http://localhost:8000/analyze', {
+            const response = await fetch('/api/analyze', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
