@@ -2,6 +2,16 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import Optional
+import logging
+import sys
+import os
+
+# Configure logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+logger.info(f"Python version: {sys.version}")
+logger.info(f"Current working directory: {os.getcwd()}")
+
 from services.weather_service import get_weather_data
 from services.seismic_service import get_seismic_risk
 from services.flood_service import get_flood_risk
@@ -23,17 +33,23 @@ class LocationData(BaseModel):
     longitude: float
     description: Optional[str] = None
 
+@app.get("/")
 @app.get("/api")
 def read_root():
-    return {"message": "Safe High-Rise API is running"}
+    logger.info("Root endpoint called")
+    return {"message": "Safe High-Rise API is running", "framework": "FastAPI", "platform": "Vercel"}
 
+@app.get("/health")
 @app.get("/api/health")
 def health_check():
+    logger.info("Health check endpoint called")
     return {"status": "healthy"}
 
 
+@app.post("/analyze")
 @app.post("/api/analyze")
 async def analyze_location(data: LocationData):
+    logger.info(f"Analyze endpoint called with: {data}")
     # 1. Gather Real/Estimated Environmental Data
     weather_profile = await get_weather_data(data.latitude, data.longitude)
     seismic_profile = get_seismic_risk(data.latitude, data.longitude, data.description or "")

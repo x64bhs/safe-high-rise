@@ -23,10 +23,15 @@ const Dashboard = () => {
                     longitude: parseFloat(location.lng) || 0
                 })
             });
+            if (!response.ok) {
+                const errorText = await response.text();
+                throw new Error(`Server Error (${response.status}): ${errorText}`);
+            }
             const data = await response.json();
             setResult(data);
         } catch (e) {
             console.error("Error analyzing:", e);
+            alert("Analysis failed: " + e.message);
         } finally {
             setLoading(false);
         }
