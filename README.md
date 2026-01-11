@@ -67,16 +67,6 @@ npm run dev
 
 3. Open `http://localhost:5173`. The frontend is configured to proxy `/api` requests to `http://localhost:8000`.
 
-## Deployment (Vercel)
-
-This project is optimized for deployment on Vercel as a full-stack application.
-
-1. Connect your GitHub repository to Vercel.
-2. Vercel will automatically detect the `vercel.json` configuration.
-3. **Deployment Settings**:
-   - **Root Directory**: Project Root (leave as default).
-   - **Build Command**: Managed by `vercel.json`.
-4. Once deployed, verify your API health at `https://your-app.vercel.app/api/health`.
 
 ## Project Structure
 
