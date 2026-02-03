@@ -94,10 +94,3 @@ A sophisticated web application designed for early-stage construction planning. 
 │   └── package.json        # Node Dependencies
 └── docs/                   # Additional Deployment Guides
 ```
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-*Created for safe and sustainable urban development.*
