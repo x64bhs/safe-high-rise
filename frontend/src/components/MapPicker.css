@@ -1,0 +1,75 @@
+.map-picker-container {
+    position: relative;
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    margin: 1rem 0;
+}
+
+.map-coordinates-display {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(15, 23, 42, 0.95);
+    color: #6ee7b7;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    z-index: 1000;
+    border: 1px solid rgba(110, 231, 183, 0.3);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.coord-label {
+    color: #94a3b8;
+    margin-right: 6px;
+    font-size: 0.75rem;
+}
+
+.coord-value {
+    color: #6ee7b7;
+    font-family: 'Courier New', monospace;
+}
+
+.map-hint {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(15, 23, 42, 0.9);
+    color: #cbd5e1;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    z-index: 1000;
+    border: 1px solid rgba(203, 213, 225, 0.2);
+    white-space: nowrap;
+}
+
+/* Leaflet popup styling overrides */
+.leaflet-popup-content-wrapper {
+    background: #1e293b;
+    color: #e2e8f0;
+    border-radius: 8px;
+}
+
+.leaflet-popup-tip {
+    background: #1e293b;
+}
+
+/* Make sure map tiles load properly */
+.leaflet-container {
+    background: #0f172a;
+}
+
+.leaflet-control-attribution {
+    background: rgba(15, 23, 42, 0.8) !important;
+    color: #94a3b8 !important;
+    font-size: 0.7rem !important;
+}
+
+.leaflet-control-attribution a {
+    color: #6ee7b7 !important;
+}
